@@ -1,5 +1,11 @@
+import Game from "./components/Game";
+
 const App = () => {
-  return <div className="text-3xl font-bold underline">Hello World</div>;
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <Game />
+    </div>
+  );
 };
 
 export default App;
