@@ -3,13 +3,16 @@
 
 @theme {
   /* bg colors */
-  --color-primary: #000000;
+  --color-primary: #441752;
   --color-secondary: #ffffff;
   --color-overlay: #000000;
 
   /* text colors */
   --color-text-primary: #000000;
   --color-text-secondary: #ffffff;
+  --color-text-accent-1: #8174a0;
+  --color-text-accent-2: #a888b5;
+  --color-text-accent-3: #efb6c8;
 
   /* button colors */
   --color-button-primary: #000000;
