@@ -19,8 +19,20 @@ export const StatusProvider: React.FC<StatusProviderProps> = ({ children }) => {
     }));
   };
 
+  const [currentPlayer, setCurrentPlayer] = useState<"X" | "O">("X");
+  const [board, setBoard] = useState<string[]>(Array(9).fill(""));
+
   return (
-    <StatusContext.Provider value={{ scores, updateScore }}>
+    <StatusContext.Provider
+      value={{
+        scores,
+        updateScore,
+        currentPlayer,
+        setCurrentPlayer,
+        board,
+        setBoard,
+      }}
+    >
       {children}
     </StatusContext.Provider>
   );

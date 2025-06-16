@@ -7,6 +7,10 @@ interface StatusContextType {
     Draw: number;
   };
   updateScore: (player: "X" | "O" | "Draw", score: number) => void;
+  currentPlayer: "X" | "O";
+  setCurrentPlayer: (player: "X" | "O") => void;
+  board: string[];
+  setBoard: (board: string[]) => void;
 }
 
 const StatusContext = createContext<StatusContextType | undefined>(undefined);
