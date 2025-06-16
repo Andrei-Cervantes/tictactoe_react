@@ -2,26 +2,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 
 @theme {
-  /* bg colors */
-  --color-primary: #441752;
-  --color-secondary: #ffffff;
-  --color-overlay: #000000;
+  /* Game UI */
+  --color-board-bg: #2b0040;
+  --color-primary: #5a1e76;
+  --color-player-x: #48d2fe;
+  --color-player-o: #e2be00;
+  --color-player-draw: #bcdbf9;
+  --color-cells: #43115b;
 
-  /* text colors */
-  --color-text-primary: #000000;
-  --color-text-secondary: #ffffff;
-  --color-text-accent-1: #8174a0;
-  --color-text-accent-2: #a888b5;
-  --color-text-accent-3: #efb6c8;
+  /* Typography */
+  --color-title: #441752;
+  --color-body: #000000;
+  --color-subtext: #6d5c85;
 
-  /* button colors */
-  --color-button-primary: #000000;
-  --color-button-hover: #000000;
-  --color-button-disabled: #000000;
+  /* Buttons */
+  --color-button-primary: #5e4b75;
+  --color-button-hover: #441752;
+  --col0r-button-disabled: #6d5c85;
 
-  /* border colors */
-  --color-border-primary: #000000;
-  --color-border-secondary: #ffffff;
+  /* Border */
+  --color-border-primary: #e3c6e9;
 
   /* font family */
   --font-family-primary: "Patrick Hand", cursive;
