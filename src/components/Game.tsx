@@ -7,7 +7,7 @@ const Game = () => {
   const { board, setBoard } = useStatus();
 
   return (
-    <div className="space-y-12 p-12 bg-board-bg rounded-xl shadow-2xl w-fit text-center z-10">
+    <div className="space-y-12 p-12 bg-board-bg rounded-xl shadow-2xl w-fit text-center z-15">
       <Status />
       <Board board={board} setBoard={setBoard} />
       <ResetButton />

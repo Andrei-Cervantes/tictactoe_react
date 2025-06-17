@@ -10,7 +10,7 @@ interface BackgroundProps {
 const Background = ({
   primaryColor,
   secondaryColor,
-  className = "absolute bottom-0 -left-2 w-1/2",
+  className = "absolute bottom-0 -left-2 w-1/2 z-10",
   theme = "default",
 }: BackgroundProps) => {
   // Determine colors to use
