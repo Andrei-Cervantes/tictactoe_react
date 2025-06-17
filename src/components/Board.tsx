@@ -1,4 +1,4 @@
-import type { SquareValue } from "./Game";
+import type { SquareValue } from "../hooks/useGameLogic";
 import Square from "./Square";
 
 interface BoardProps {

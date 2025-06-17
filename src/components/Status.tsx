@@ -1,5 +1,5 @@
 import IndividualScore from "./IndividualScore";
-import type { Player } from "./Game";
+import type { Player } from "../hooks/useGameLogic";
 
 interface StatusProps {
   scores: { X: number; O: number; Draw: number };

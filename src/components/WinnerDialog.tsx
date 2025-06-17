@@ -6,7 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "./ui/dialog";
-import type { Player } from "./Game";
+import type { Player } from "../hooks/useGameLogic";
 
 interface WinnerDialogProps {
   winner: Player | null;

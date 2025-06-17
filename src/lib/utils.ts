@@ -1,4 +1,4 @@
-import type { Player, SquareValue } from "@/components/Game";
+import type { Player, SquareValue } from "../hooks/useGameLogic";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
