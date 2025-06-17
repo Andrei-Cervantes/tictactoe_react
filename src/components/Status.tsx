@@ -8,7 +8,7 @@ interface StatusProps {
 
 const Status = ({ scores, currentPlayer }: StatusProps) => {
   return (
-    <div>
+    <div className="flex flex-col items-center gap-4">
       <div className="text-2xl font-bold">
         {currentPlayer === "X" ? "Player X's Turn" : "Player O's Turn"}
       </div>

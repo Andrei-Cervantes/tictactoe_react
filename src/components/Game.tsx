@@ -36,7 +36,7 @@ const Game = () => {
   };
 
   return (
-    <div className="space-y-12 p-12 bg-board-bg rounded-xl shadow-2xl w-fit text-center z-15">
+    <div className="space-y-12 px-12 py-8 bg-board-bg rounded-xl shadow-2xl w-fit text-center z-15">
       <Status scores={scores} currentPlayer={currentPlayer} />
       <Board board={board} onSquareClick={handleSquareClick} />
       <ResetButton onReset={handleReset} />
