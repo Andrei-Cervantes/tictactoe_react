@@ -3,8 +3,8 @@ import Board from "./Board";
 import ResetButton from "./ResetButton";
 import Status from "./Status";
 
-type Player = "X" | "O";
-type SquareValue = Player | null;
+export type Player = "X" | "O";
+export type SquareValue = Player | null;
 
 const Game = () => {
   const boardSize = 9;
@@ -12,6 +12,11 @@ const Game = () => {
     Array(boardSize).fill(null)
   );
   const [currentPlayer, setCurrentPlayer] = useState<Player>("X");
+  const [scores, setScores] = useState<{ X: number; O: number; Draw: number }>({
+    X: 0,
+    O: 0,
+    Draw: 0,
+  });
 
   // Handler for clicks inside the board
   const handleSquareClick = (index: number) => {
@@ -32,9 +37,9 @@ const Game = () => {
 
   return (
     <div className="space-y-12 p-12 bg-board-bg rounded-xl shadow-2xl w-fit text-center z-15">
-      <Status />
-      <Board />
-      <ResetButton />
+      <Status scores={scores} currentPlayer={currentPlayer} />
+      <Board board={board} onSquareClick={handleSquareClick} />
+      <ResetButton onReset={handleReset} />
     </div>
   );
 };
