@@ -9,7 +9,7 @@ interface StatusProps {
 const Status = ({ scores, currentPlayer }: StatusProps) => {
   return (
     <div className="flex flex-col items-center gap-4">
-      <div className="text-2xl font-bold">
+      <div className="text-2xl font-bold text-white">
         {currentPlayer === "X" ? "Player X's Turn" : "Player O's Turn"}
       </div>
       <div className="flex justify-between items-center gap-4">
