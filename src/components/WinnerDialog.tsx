@@ -5,28 +5,32 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
 } from "./ui/dialog";
 import type { Player } from "./Game";
 
 interface WinnerDialogProps {
-  winner: Player;
+  winner: Player | null;
+  isDraw: boolean;
+  onReset: () => void;
+  open: boolean;
 }
 
-const WinnerDialog = ({ winner }: WinnerDialogProps) => {
+const WinnerDialog = ({ winner, isDraw, onReset, open }: WinnerDialogProps) => {
   return (
-    <Dialog>
-      <DialogContent>
+    <Dialog open={open}>
+      <DialogContent className="bg-border-primary p-8 w-fit">
         <DialogHeader>
-          <DialogTitle>Winner</DialogTitle>
+          <DialogTitle>
+            {isDraw ? "It's a draw!" : `The Winner is Player ${winner}!`}
+          </DialogTitle>
         </DialogHeader>
-        <DialogDescription>
-          <p>The Winner is {winner}</p>
-        </DialogDescription>
         <DialogFooter>
-          <DialogClose asChild>
-            <button className="bg-player-draw px-4 py-2 rounded-md cursor-pointer">
-              Close
+          <DialogClose asChild className="mx-auto">
+            <button
+              className="bg-player-draw px-4 py-2 rounded-md cursor-pointer hover:scale-105 transition-all duration-100 hover:font-bold border-2 border-title"
+              onClick={onReset}
+            >
+              Reset
             </button>
           </DialogClose>
         </DialogFooter>

@@ -2,6 +2,8 @@ import { useState } from "react";
 import Board from "./Board";
 import ResetButton from "./ResetButton";
 import Status from "./Status";
+import { calculateWinner } from "../lib/utils";
+import WinnerDialog from "./WinnerDialog";
 
 export type Player = "X" | "O";
 export type SquareValue = Player | null;
@@ -17,6 +19,10 @@ const Game = () => {
     O: 0,
     Draw: 0,
   });
+
+  const winner = calculateWinner(board);
+  const isDraw = board.every((square) => square !== null) && !winner;
+  const isGameOver = winner !== null || isDraw;
 
   // Handler for clicks inside the board
   const handleSquareClick = (index: number) => {
@@ -40,6 +46,14 @@ const Game = () => {
       <Status scores={scores} currentPlayer={currentPlayer} />
       <Board board={board} onSquareClick={handleSquareClick} />
       <ResetButton onReset={handleReset} />
+
+      {/* Winner Dialog */}
+      <WinnerDialog
+        winner={winner}
+        isDraw={isDraw}
+        onReset={handleReset}
+        open={isGameOver}
+      />
     </div>
   );
 };
