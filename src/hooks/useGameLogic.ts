@@ -15,6 +15,7 @@ export const useGameLogic = () => {
     O: 0,
     Draw: 0,
   });
+  const [hasLoadedFromStorage, setHasLoadedFromStorage] = useState(false);
 
   const boardSize = 9;
   const [board, setBoard] = useState<SquareValue[]>(
@@ -33,12 +34,15 @@ export const useGameLogic = () => {
     if (saved) {
       setScores(JSON.parse(saved));
     }
+    setHasLoadedFromStorage(true);
   }, []);
 
-  // update scores in localStorage when they change
+  // update scores in localStorage when they change (only after loading)
   useEffect(() => {
-    localStorage.setItem("tictactoe-scores", JSON.stringify(scores));
-  }, [scores]);
+    if (hasLoadedFromStorage) {
+      localStorage.setItem("tictactoe-scores", JSON.stringify(scores));
+    }
+  }, [scores, hasLoadedFromStorage]);
 
   // Update scores when game ends (only once per game)
   useEffect(() => {
