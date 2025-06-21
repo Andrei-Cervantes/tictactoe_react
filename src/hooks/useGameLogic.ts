@@ -28,19 +28,19 @@ export const useGameLogic = () => {
   const isDraw = board.every((square) => square !== null) && !winner;
   const isGameOver = winner !== null || isDraw;
 
-  // load scores from localStorage on mount
+  // load scores from sessionStorage on mount
   useEffect(() => {
-    const saved = localStorage.getItem("tictactoe-scores");
+    const saved = sessionStorage.getItem("tictactoe-scores");
     if (saved) {
       setScores(JSON.parse(saved));
     }
     setHasLoadedFromStorage(true);
   }, []);
 
-  // update scores in localStorage when they change (only after loading)
+  // update scores in sessionStorage when they change (only after loading)
   useEffect(() => {
     if (hasLoadedFromStorage) {
-      localStorage.setItem("tictactoe-scores", JSON.stringify(scores));
+      sessionStorage.setItem("tictactoe-scores", JSON.stringify(scores));
     }
   }, [scores, hasLoadedFromStorage]);
 
