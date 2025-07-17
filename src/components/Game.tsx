@@ -3,7 +3,7 @@ import ResetButton from "./ResetButton";
 import Status from "./Status";
 import WinnerDialog from "./WinnerDialog";
 import { useGameLogic } from "../hooks/useGameLogic";
-import useMobile from "@/hooks/useMobile";
+import useMobile from "../hooks/useMobile";
 
 const Game = () => {
   const {
@@ -19,18 +19,17 @@ const Game = () => {
 
   const isMobile = useMobile();
 
-  // handle mobile screens
   const getClassName = () => {
     if (isMobile) {
-      return "";
+      return "space-y-8 px-8 py-6 bg-board-bg/90";
     } else {
-      return "";
+      return "space-y-12 px-12 py-8 bg-board-bg";
     }
   };
 
   return (
     <div
-      className={`space-y-12 px-12 py-8 bg-board-bg rounded-xl shadow-2xl w-fit text-center z-15 ${getClassName()}`}
+      className={`${getClassName()} bg-board-bg rounded-xl shadow-2xl w-fit text-center z-15`}
     >
       <Status scores={scores} currentPlayer={currentPlayer} />
       <Board board={board} onSquareClick={handleSquareClick} />

@@ -1,4 +1,5 @@
 import type { SquareValue } from "../hooks/useGameLogic";
+import useMobile from "../hooks/useMobile";
 import Square from "./Square";
 
 interface BoardProps {
@@ -7,15 +8,26 @@ interface BoardProps {
 }
 
 const Board = ({ board, onSquareClick }: BoardProps) => {
+  const isMobile = useMobile();
+
+  const getClassName = () => {
+    if (isMobile) {
+      return "gap-4";
+    } else {
+      return "gap-4";
+    }
+  };
   return (
-    <div className="grid grid-cols-3 gap-4">
-      {board.map((square, index) => (
-        <Square
-          key={index}
-          value={square}
-          onSquareClick={() => onSquareClick(index)}
-        />
-      ))}
+    <div>
+      <div className={`grid grid-cols-3 w-fit mx-auto ${getClassName()}`}>
+        {board.map((square, index) => (
+          <Square
+            key={index}
+            value={square}
+            onSquareClick={() => onSquareClick(index)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

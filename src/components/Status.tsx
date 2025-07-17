@@ -1,5 +1,6 @@
 import IndividualScore from "./IndividualScore";
 import type { Player } from "../hooks/useGameLogic";
+import useMobile from "../hooks/useMobile";
 
 interface StatusProps {
   scores: { X: number; O: number; Draw: number };
@@ -7,8 +8,18 @@ interface StatusProps {
 }
 
 const Status = ({ scores, currentPlayer }: StatusProps) => {
+  const isMobile = useMobile();
+
+  const getClassName = () => {
+    if (isMobile) {
+      return "gap-2";
+    } else {
+      return "gap-4";
+    }
+  };
+
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className={`flex flex-col items-center ${getClassName()}`}>
       <div className="text-2xl font-bold text-white">
         {currentPlayer === "X" ? "Player X's Turn" : "Player O's Turn"}
       </div>
